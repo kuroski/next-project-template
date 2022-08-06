@@ -7,7 +7,7 @@ I was a bit tired on having to install the same dependencies or comming up with 
 Within this template you have:
 
 - [chakra](https://chakra-ui.com/) as component UI framework
-- [trpc](https://trpc.io/) e2e solution to handle API requests safely + it integrates with [react-query](https://react-query.tanstack.com/) to handle requests
+- [trpc](https://trpc.io/) e2e solution to handle API requests safely + it integrates with [react-query](https://tanstack.com/query/v4) to handle requests
 - [zod](https://github.com/colinhacks/zod) schema validation with static type inference [[1]](https://medium.com/homeday/confident-js-series-part-1-encoding-and-decoding-payloads-for-saner-applications-814d03608926)
 - [fp-ts](https://github.com/gcanti/fp-ts) our "utility library" to help us handle some things in a more "functional way"
 - [tanstack table](https://tanstack.com/table/v8) library to help us handle tables
