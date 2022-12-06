@@ -7,7 +7,7 @@ import { NextPageWithAuth } from "@/lib/types";
 const OnlyAdmin: NextPageWithAuth = () => {
   return (
     <DefaultLayout>
-      <NextLink href={{ pathname: "/" }} passHref>
+      <NextLink href={{ pathname: "/" }} passHref legacyBehavior>
         <Link color="blue.500">Back to home</Link>
       </NextLink>
 

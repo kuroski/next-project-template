@@ -1,17 +1,17 @@
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { Role } from "@prisma/client";
-import { NextAuthOptions, User } from "next-auth";
+import { NextAuthOptions } from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 
-import { serverEnv } from "@/env/server";
+import { env } from "@/env/server.mjs";
 import prisma from "@/lib/prisma";
 
 const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
     GithubProvider({
-      clientId: serverEnv.GITHUB_ID,
-      clientSecret: serverEnv.GITHUB_SECRET,
+      clientId: env.GITHUB_ID,
+      clientSecret: env.GITHUB_SECRET,
     }),
   ],
   callbacks: {

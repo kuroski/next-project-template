@@ -20,13 +20,13 @@ import { trpc } from "@/lib/trpc";
 
 const Home: NextPage = () => {
   const toast = useToast();
-  const pong = trpc.useQuery(["health.ping"], {
+  const pong = trpc.health.ping.useQuery(undefined, {
     refetchOnWindowFocus: false,
     onError: (err) => {
       console.trace(err);
     },
   });
-  const pongMutation = trpc.useMutation(["health.pong"], {
+  const pongMutation = trpc.health.pong.useMutation({
     onError: (error) => {
       toast({
         title: `Something went wrong: ${error}`,
@@ -52,12 +52,12 @@ const Home: NextPage = () => {
         >
           Refresh
         </Button>
-        <NextLink href={{ pathname: "/private" }} passHref>
+        <NextLink href={{ pathname: "/private" }} passHref legacyBehavior>
           <Link color="blue.500" display="flex" alignItems="center" gap="1">
             <Link1Icon /> Private route
           </Link>
         </NextLink>
-        <NextLink href={{ pathname: "/only-admin" }} passHref>
+        <NextLink href={{ pathname: "/only-admin" }} passHref legacyBehavior>
           <Link color="blue.500" display="flex" alignItems="center" gap="1">
             <Link1Icon /> Admin only route
           </Link>
@@ -72,6 +72,7 @@ const Home: NextPage = () => {
           </AlertTitle>
         </Alert>
       )}
+
       {pong.isError && (
         <Alert status="error">{JSON.stringify(pong.error, null, 4)}</Alert>
       )}
@@ -86,7 +87,7 @@ const Home: NextPage = () => {
         <HelloForm
           isSubmitting={pongMutation.isLoading}
           onSubmit={(values) =>
-            pongMutation.mutateAsync(null, {
+            pongMutation.mutateAsync(values, {
               onSuccess: (data) => {
                 toast({ title: `Hello ${values.name}`, description: data });
               },

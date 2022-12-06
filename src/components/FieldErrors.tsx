@@ -1,4 +1,3 @@
-/* eslint-disable react/display-name */
 import { FormErrorMessage } from "@chakra-ui/react";
 import {
   FieldError as ReactHookFieldError,

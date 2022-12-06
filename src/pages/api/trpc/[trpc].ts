@@ -12,7 +12,4 @@ export default trpcNext.createNextApiHandler({
       logger.error(error);
     }
   },
-  batching: {
-    enabled: true,
-  },
 });

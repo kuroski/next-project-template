@@ -44,9 +44,9 @@ const Header = (): JSX.Element => {
         />
 
         <Link href="/">
-          <a>
-            <IconButton aria-label={t("home_page")} icon={<HomeIcon />} />
-          </a>
+
+          <IconButton aria-label={t("home_page")} icon={<HomeIcon />} />
+
         </Link>
       </div>
 
